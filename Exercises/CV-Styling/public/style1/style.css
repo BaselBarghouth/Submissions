@@ -9,7 +9,7 @@
     top: 0;
     margin: 0 auto 0 auto;
     font-family: 'Times New Roman', Times, serif;
-    height: 1000px;
+    height: 1100px;
 }
 hgroup{
     position:absolute;
@@ -150,7 +150,7 @@ h4{
 }
 .skill[data-skill="9"]::before{
     content: '';
-    background-color:rgb(255, 77, 77);
+    background-color: rgb(255, 77, 77);
     display: inline-block;
     height: 20px;
     width: 90%;
@@ -185,4 +185,66 @@ h4{
     position: absolute;
     top: 4px;
     left: 3px;
+}
+@media screen and (max-width:600px){
+
+    .content{
+        width: 80%;
+        margin: 0 auto 0 auto;
+        display: grid;
+        grid-template-columns: br;
+        grid-template-rows: br br br br br;
+        grid-template-areas: 
+        "ab"
+        "co"
+        "ex"
+        "ed"
+        "ho";
+    }
+    #\#wrapper{
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin: 0 auto 0 auto;
+        font-family: 'Times New Roman', Times, serif;
+        height:2000px;
+    }
+    hgroup{
+        position:absolute;
+        margin:20px 0 0 20px;
+        color: red;
+    }
+    figure{
+        padding: 140px 0 0 20px;
+        
+    }
+    header{
+        background-color: grey;
+        width: 100%;
+        margin: 0 auto 0 auto;
+        height: 300px;
+    }
+    #contact{
+        position: absolute;
+        top: 1800px;
+    }
+    .contact{
+        display: flex;
+        width: 450px;
+        height: 21px;
+        background-color: black;
+        color: white;
+    }
+    .contact-type{
+        width: 110px;
+        background-color: red;
+    }
+    .contact-value{
+        padding-left: 2px;
+        background-color:black;
+        color: red;
+    }
+    .contact-value a{
+        color: red;
+    }
 }

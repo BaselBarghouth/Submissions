@@ -1,0 +1,269 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#\#wrapper{
+    width: 80%;
+    margin: 0 auto 0 auto;
+    height: 1600px;
+}
+hgroup h2{
+    visibility: hidden;
+}
+hgroup h1{
+    margin-top: 50px;
+    height: 50px;
+    width: 200px;
+    float: left;
+}
+header{
+    height: 120px;
+    border-bottom: 2px solid rgb(204, 204, 204);
+}
+figure{
+    padding-left: 780px;
+    position: relative; 
+    top: 8px;
+}
+#about h3{
+    visibility: hidden;
+}
+#about p{
+    width: 70%;
+    font-style: italic;
+    color:grey;    
+    font-size: 20px;
+    text-align: justify;
+}
+figure img{
+    transform: rotate(-20deg);
+    width: 200px;
+}
+  #competencies {
+    padding-top: 80px;
+    height: 150px;
+    margin-bottom: 40px;
+  }
+  
+  #competencies h3 {
+    float: left;
+    width: 130px;
+    height: 100px;
+    border-right: 2px solid #000;
+  }
+  
+  .skills {
+    height: 45px;
+    color: white;
+  }
+  .skill {
+    position: relative;
+    display: inline-block;
+    background-color: #008080;
+    padding: 10px 10px 10px 10px;
+    width: 130px;
+    left: 8px;
+  }
+  .skills-primary .skill[data-skill="5"]::after {
+    content: '\22C6';
+    color:white;
+    font-size: 22px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  .skills-primary .skill[data-skill="3"]::after {
+    content: '\22C6\22C6';
+    color: white;
+    font-size: 22px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  .skills-primary .skill[data-skill="1"]::after {
+    content: '\22C6\22C6\22C6';
+    color: white;
+    font-size: 22px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  .skills-secondary .skill[data-skill="9"]::after {
+    content: '\22C6\22C6\22C6\22C6\22C6';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+  }
+  .skills-secondary .skill[data-skill="5"]::after {
+    content: '\22C6\22C6\22C6\22C6\22C6';
+    color:white;
+    font-size: 12px;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+  }
+  
+  .skills-secondary .skill[data-skill="7"]::after {
+    content: '\22C6\22C6\22C6\22C6';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+  }
+.skills-secondary{
+    font-size: 12px;
+}
+#experiences{
+    padding-top: 50px; 
+}
+#experiences h3{
+    height: 250px;
+    width: 130px;
+    float: left;
+    border-right: 2px solid black;
+}
+.experience{
+    padding-left: 140px;
+}
+.experience-institution{
+    visibility: hidden;
+}
+.experience-type{
+    color: #008080;
+}
+.experience h4{
+    float: left;
+}
+.experience-details{
+    padding-left: 800px;
+    padding-bottom: 30px;
+    color: gray;
+}
+.experience-description{
+    padding-bottom: 20px;
+    font-size: 21px;    
+}
+#education{
+    padding-top: 50px;
+}
+#education h3{
+    height: 400px;
+    width: 130px;
+    float: left;
+    border-right: 2px solid black;
+}
+#hobbies {
+    padding-top: 50px;
+}
+#hobbies h3{
+    height: 100px;
+    width: 130px;
+    float: left;
+    border-right: 2px solid black;
+}
+ul{
+    padding-left: 180px;
+}
+h3{
+    font-style: italic;
+}
+#contact h3, .contact-type, .contact-value {
+    visibility: hidden;
+  }
+  #contact {
+    position: relative;
+    top: 100px;
+  }
+  .contact-email {
+    background-image: url('email.png');
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 30%;
+    bottom: 3px;
+  }
+  .contact-phone {
+    background-image: url('phone.png');
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 50%;
+    bottom: 1px;
+  }
+  .contact-github {
+    background-image: url('github.png');
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    margin-left: 500px;
+    position: absolute;
+    left: 5%;
+    bottom: 1px;
+  }
+  .contact-facebook {
+    background-image: url('facebook.png');
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    margin-left: 700px;
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
+  }
+  @media (max-width:600px){
+      figure, #hobbies, #contact{
+          visibility: hidden;
+      }
+      #about p{
+        width: 100%;
+        font-style: italic;
+        color:grey;    
+        font-size: 20px;
+        text-align: justify;
+    }
+    #competencies h3{
+        padding-bottom: 10px;
+        width: 400px;
+        height: 30px;
+        border-right: none;
+        border-bottom: 2px solid black;
+    }
+    #experiences h3{
+        border-right: none;
+        border-bottom: 2px solid black;
+    }
+    .skill{
+        margin:5px;
+       float: left;
+    }
+    #experiences h3{
+        margin-top: 30px;
+        width: 600px;
+        height: 30px;;
+    }
+    .experience{
+        float: left;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+    .experience-details{
+        padding-left: 330px;
+    }
+    #education h3{
+        border-right: none;
+        border-bottom: 2px solid black;
+        height: 30px;
+        width: 600px;
+    }
+   
+  }
