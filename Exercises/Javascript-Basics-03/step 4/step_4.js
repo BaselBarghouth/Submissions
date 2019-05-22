@@ -3,7 +3,8 @@ var x = document.querySelector('#password');
     var z = document.querySelector('button');
     z.addEventListener('click',function(){
       if(x.value!=y.value){
-        x.style.color='red'
-        y.style.color='red'
+        x.style.borderColor='red'
+        y.style.borderColor='red'
       }
     });
+    
