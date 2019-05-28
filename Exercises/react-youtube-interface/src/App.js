@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-
 import './App.css';
-import Test from './Component/Test';
-
+import Headers from './Component/Headers';
+import Video from './Component/Video';
+import Videoo from './Component/Videoo';
 class App extends Component {
     constructor(props) {
         super(props);
@@ -14,8 +14,13 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Test/>
+               <Headers />
+               <div id='page'>
+                    <Video />
+                    <Videoo />
+               </div>
             </div>
+            
         );
     }
 }
