@@ -3,34 +3,45 @@
     padding: 0;
     box-sizing: border-box;
 }
-.Header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 95%;
-    margin: 5px auto 0 auto;
-}
-img{
-    height: 50px;
-    width: 100px;
-}
-nav{
-    margin-top: 5px;
-    display: flex;
-    flex-direction: row;
-}
-#b1{
+button{
+    height: 35px;
+    width: 39px;
+    margin-left: -249px;
     background-image: url('./assets/698627-icon-111-search-512.png');
-    display: inline-block;
     background-repeat: no-repeat;
     background-size: 30px;
     background-position: cover;
-    height: 35px;
-    width: 40px;
 }
-input{
-    width:500px;
-    height: 35px;
+.searchbar{
+    width: 95%;
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+}
+.content{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto 20px auto;
+}
+.video{
+    width: 60%;
+    
+}
+.restvideo{
+    
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.kl{
+    margin: 10px;
+    display:inline-block;
+    
+}
+.pp{
+    float: left;
 }
 a{
     margin: 5px;
@@ -63,7 +74,7 @@ a{
     
 }
 #a4{
-    background-image: url('./assets/baseline_video_call_black_48dp.png');
+    background-image: url('./assets/baseline_notifications_black_48dp.png');
     display: inline-block;
     background-repeat: no-repeat;
     background-size: 30px;
@@ -71,77 +82,25 @@ a{
     width: 30px;
     
 }
-#page{
+.searchbar{
     width: 95%;
-    margin: 20px auto 20px auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 10px auto 0 auto;
 }
-.LeftVideo{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+input{
+    width:500px;
+    height: 35px;
 }
-.Desrpition{
-    margin-top: 10px;
-    width: 700px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+img{
+    height: 50px;
+    width: 100px;
 }
-#text1{
-    width: 700px;
-    margin: 10px 0 0 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid grey;
+.restvideoscss{
+    padding-left: 110px;
+    margin-left: 100px;
 }
-#text2{
-    margin-left: -320px;
-}
-#image2{
-    border-radius: 50%;
-    width: 50px;
-}
-#b2{
-    width: 130px;
-    height: 40px;
-    color: white;
-    background-color: red;
-}
-#text3{
-    margin: 10px 0 0 50px;
-}
-h5{
-    font-size: 12px;
-    font-style: normal;
-    font-family: 'Times New Roman', Times, serif;
-}
-p{
+h6{
     color: grey;
-}
-h3{
-    font-family: 'Times New Roman', Times, serif;
-}
-#link{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 12px;
-}
-.RightVideo{
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* border-bottom: 1px solid grey; */
-    height: 300px;
-    padding-bottom: 10px;
-}
-#all{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.text4{
-    padding-left: 5px;
 }
