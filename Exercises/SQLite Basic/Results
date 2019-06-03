@@ -5,20 +5,25 @@
     4	Layal	18	F	350
     5	Robert	34	M	500
     6	Jana	33	F	500
+    
 2- SELECT * FROM students
    WHERE Age>30
 3- SELECT * FROM students
+
    WHERE Gender='F' and 
    Age =30
 4- SELECT Points From students
    Where name='Alex'
    200
+   
 5- INSERT into students(name,Age,Gender,Points)
    VALUES('Basel',27,'M',18723638392)
    7	Basel	27	M	18723638392
+   
 6- UPDATE students SET Points=Points+100
    WHERE name='Basma'
    2	Basma	25	F	400
+   
 7- UPDATE students SET Points=Points-100
    WHERE name='Alex'
    1	Alex	21	M	100
@@ -32,17 +37,19 @@
 	Points INT
 );
 
-1-  INSERT into graduates (id,name,age,gender,Points)
+8-  INSERT into graduates (id,name,age,gender,Points)
     SELECT * from students
     WHERE id=4
-2- UPDATE graduates
+    
+9- UPDATE graduates
     set graduation = 08/09/2018 
     WHERE id=4
-3- delete from students WHERE id=4
+    
+10- delete from students WHERE id=4
 
 join
 
-1- SELECT employees.name, employees.company, companies.date
+11- SELECT employees.name, employees.company, companies.date
     from employees inner JOIN companies
     on employees.Company=companies.name
     Marc	Google	1998
@@ -50,15 +57,42 @@ join
     Alaa	Facebook	2004
     Hala	Snapchat	2011
     
-2- SELECT employees.name, employees.company, companies.date
+12- SELECT employees.name, employees.company, companies.date
     from employees inner JOIN companies
     on employees.Company=companies.name
     where companies.Date<2000
     Marc	Google	1998
-   Maria	Google	1998
-3- select * from employees
+    Maria	Google	1998
+    
+13- select * from employees
     WHERE Role='Graphic Designer'
     4	Hala	Graphic Designer	Snapchat
     
+count and filter
 
-
+14- select name,points from students 
+    where Points=(select max(points) from students)
+    Basel	18723638392
+    
+15- select avg(points)as Average
+    from students 
+    3120606673.66667
+    
+16- select count(Points)as numberofstudents from students
+    where points=500
+    2
+    
+17- select name as namescontains_s from students
+    where name like '%s%'
+    Basel
+    Basma
+    Hasan
+    
+18- select name,points as decreasing_order_pts from students
+    ORDER by points DESC
+    Basel	18723638392
+    Robert	500
+    Jana	500
+    Basma	400
+    Hasan	150
+    Alex	100
