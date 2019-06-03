@@ -3,7 +3,7 @@
    WHERE Age>30
 3- SELECT * FROM students
    WHERE Gender='F' and 
-   Age >30
+   Age =30
 4- SELECT Points From students
    Where name='Alex'
 5- INSERT into students(name,Age,Gender,Points)
