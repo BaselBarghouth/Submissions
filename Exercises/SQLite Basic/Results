@@ -23,12 +23,5 @@
    WHERE name='Alex'
    1	Alex	21	M	100
    
-   CREATING TABLE
-   CREATE TABLE graduates (
-    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    Name varchar(255) NOT NULL,
-    AGE INT,
-    Gender varchar(255),
-	Points INT
-);
+
 
