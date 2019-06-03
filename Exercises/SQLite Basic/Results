@@ -1,4 +1,10 @@
 1- SELECT * FROM students
+    1	Alex	21	M	200
+    2	Basma	25	F	300
+    3	Hasan	30	M	150
+    4	Layal	18	F	350
+    5	Robert	34	M	500
+    6	Jana	33	F	500
 2- SELECT * FROM students
    WHERE Age>30
 3- SELECT * FROM students
@@ -6,9 +12,23 @@
    Age =30
 4- SELECT Points From students
    Where name='Alex'
+   200
 5- INSERT into students(name,Age,Gender,Points)
-VALUES('Basel',27,'M',18723638392)
+   VALUES('Basel',27,'M',18723638392)
+   7	Basel	27	M	18723638392
 6- UPDATE students SET Points=Points+100
-WHERE name='Basma'
+   WHERE name='Basma'
+   2	Basma	25	F	400
 7- UPDATE students SET Points=Points-100
-WHERE name='Alex'
+   WHERE name='Alex'
+   1	Alex	21	M	100
+   
+   CREATING TABLE
+   CREATE TABLE graduates (
+    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Name varchar(255) NOT NULL,
+    AGE INT,
+    Gender varchar(255),
+	Points INT
+);
+
