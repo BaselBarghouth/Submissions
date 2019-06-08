@@ -50,6 +50,9 @@ function onDataReceived(text) {
   else if (text.trim().slice(0,6) === 'remove') {
     remove(text);
   }
+  else if (text.trim().slice(0,4) === 'edit') {
+    edit(text);
+  }
   else if (text === 'quit\n') {
     quit();
   }
@@ -123,24 +126,24 @@ function add(a,l){
   }
   
 }
-
+  
 /**
  * remove function
- * you can remove the last or seconed or first task
+ * you can remove any task you add in addtion to the basic tasks!!
  *
  * @returns {void}
  */
 function remove(r){
-  var i = r.charAt(7);
+  var number = r.charAt(7);
   if( r=='remove\n'){
     array.splice(array.length-1,1)
   }
-  else if(i>array.length){
+  else if(number>array.length){
     console.log('Please enter the right numberof task to remove')
   }
   else{
-  for (i;i<array.length+1;i++){
-    array.splice(i-1,1)
+  for (number;number<array.length+1;number++){
+    array.splice(number-1,1)
     break;
   }}
   // if(r=='remove\n'){
@@ -155,6 +158,28 @@ function remove(r){
   // else{
   //   unknownCommand(r)
   // }
+}
+/**
+ * edit function
+ * you can edit any task you want! 
+ * 
+ *
+ * @returns {void}
+ */
+function edit(e){
+  //console.log('hh')
+  var number = e.charAt(5);
+  console.log(array.length)
+  console.log(number)
+  if (e=='edit\n'){
+    console.log('error')
+  }
+  else if(e=='edit new text\n'){
+    array.splice(array.length-1,1,'new text')
+  }
+  else if(number<=array.length){
+    array.splice(number-1,1,e.trim().substring(7,e.trim().lenght))
+  }
 }
 /**
  * Exits the application
