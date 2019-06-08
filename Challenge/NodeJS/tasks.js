@@ -34,7 +34,10 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text === 'quit\n') {
+  if (text === 'help\n'){
+    help();
+  }
+  else if (text === 'quit\n') {
     quit();
   }
   else if(text === 'exit\n'){
@@ -69,7 +72,9 @@ function unknownCommand(c){
 function hello(){
   console.log('hello!')
 }
-
+function help(){
+  console.log('You have three commads as follow:\nhello\nquit\nexit')
+}
 
 /**
  * Exits the application
