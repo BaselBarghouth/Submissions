@@ -44,6 +44,9 @@ function onDataReceived(text) {
   else if(text === 'list\n') {
     list();
   }
+  else if(text.trim().slice(0,3)=== 'add'){
+    add(text,lenght);
+  }
   else if (text === 'quit\n') {
     quit();
   }
@@ -77,7 +80,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(h,l){
-  console.log(l)
+  //console.log(l)
   console.log('hello'+h.trim().substring(5,l)+'!')
   //console.log(h.lenght)
 }
@@ -101,6 +104,22 @@ function list(t){
   for (var i=0 ;i<array.length;i++){
     console.log((i+1)*1+'-'+array[i])
   }}
+  /**
+ * add function
+ * You add tasks by using this function to your task list 
+ * 
+ *
+ * @returns {void}
+ */
+function add(a,l){
+  if (l>5){
+    array.push(a.trim().substring(4,l))
+  }
+  else{
+    console.log('error')
+  }
+  
+}
 
 /**
  * Exits the application
