@@ -47,6 +47,9 @@ function onDataReceived(text) {
   else if(text.trim().slice(0,3)=== 'add'){
     add(text,lenght);
   }
+  else if (text.trim().slice(0,6) === 'remove') {
+    remove(text);
+  }
   else if (text === 'quit\n') {
     quit();
   }
@@ -121,6 +124,26 @@ function add(a,l){
   
 }
 
+/**
+ * remove function
+ * you can remove the last or seconed or first task
+ *
+ * @returns {void}
+ */
+function remove(r){
+  if(r=='remove\n'){
+    array.splice(array.length-1,1)
+  }
+  else if (r.charAt(7)==1){
+    array.splice(0,1)
+  }
+  else if (r.charAt(7)==2){
+    array.splice(1,1)
+  }
+  else{
+    unknownCommand(r)
+  }
+}
 /**
  * Exits the application
  *
