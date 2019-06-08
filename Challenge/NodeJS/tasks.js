@@ -34,12 +34,15 @@ function startApp(name){
  * @returns {void}
  */
 
-
+var array=['Read the task as many times you can.','Understand the steps.','Congrats you are a programmer.'];
 function onDataReceived(text) {
   var lenght = text.length;
   //console.log(lenght)
   if (text.trim().slice(0,4)  === 'help'){
     help();
+  }
+  else if(text === 'list\n') {
+    list();
   }
   else if (text === 'quit\n') {
     quit();
@@ -88,6 +91,16 @@ function hello(h,l){
 function help(){
   console.log('You have three commads as follow:\nhello\nquit\nexit')
 }
+/**
+ * list function
+ * Show all the tasks that you should be done!!!
+ *
+ * @returns {void}
+ */
+function list(t){
+  for (var i=0 ;i<array.length;i++){
+    console.log((i+1)*1+'-'+array[i])
+  }}
 
 /**
  * Exits the application
