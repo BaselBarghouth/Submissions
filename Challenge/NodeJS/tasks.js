@@ -72,6 +72,13 @@ function unknownCommand(c){
 function hello(){
   console.log('hello!')
 }
+
+/**
+ * help function
+ * Show all the possible commands in the application
+ *
+ * @returns {void}
+ */
 function help(){
   console.log('You have three commads as follow:\nhello\nquit\nexit')
 }
