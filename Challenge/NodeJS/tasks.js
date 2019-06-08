@@ -95,7 +95,7 @@ function hello(h,l){
  * @returns {void}
  */
 function help(){
-  console.log('You have three commads as follow:\nhello\nquit\nexit')
+  console.log('You have three commads as follow:\n1-hello\n2-quit\n3-exit\n4-list\n5-add\n6-remove')
 }
 /**
  * list function
