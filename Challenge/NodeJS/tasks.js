@@ -38,7 +38,7 @@ function startApp(name){
 function onDataReceived(text) {
   var lenght = text.length;
   //console.log(lenght)
-  if (text === 'help\n'){
+  if (text.trim().slice(0,4)  === 'help'){
     help();
   }
   else if (text === 'quit\n') {
