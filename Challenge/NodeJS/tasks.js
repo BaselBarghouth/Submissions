@@ -1,4 +1,3 @@
-
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -9,13 +8,63 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
+
+
+/* define the path if it exist or not */
+var path;
+    if(process.argv[2]){
+         path = process.argv[2];
+    }
+    else{
+         path = 'database.json';
+    }
+
+var fs=require('fs');
+// task = JSON.parse(loading('database.json'));
+  
+
+
 function startApp(name){
+    if(!fs.existsSync(path)){
+        storeData(array,path);
+        }
+   array= JSON.parse(loading(path));
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+
+  
+   
+   
 }
+ //  load data from  database.json
+ const loading = (path) => {
+    try {
+      return fs.readFileSync(path, 'utf8')
+    }
+     catch (err) {
+      console.error(err)
+      return false
+    }
+  }
+
+//  save data in database.json when i type exit or quit.
+const storeData = (data, path) => {
+    try {
+      fs.writeFileSync(path, JSON.stringify(data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+// function startApp(name){
+//   process.stdin.resume();
+//   process.stdin.setEncoding('utf8');
+//   process.stdin.on('data', onDataReceived);
+//   console.log(`Welcome to ${name}'s application!`)
+//   console.log("--------------------")
+// }
 
 
 /**
@@ -33,34 +82,38 @@ function startApp(name){
  * @param  {string} text data typed by the user
  * @returns {void}
  */
+// var array = ['task','task','task']
+var array = [{task:'task',done:'false'},{task:'task',done:'false'},{task:'task',done:'false'}]
+array[0].done == true ?  "do something"  :  "do nothing"
 
-var array=['Read the task as many times you can.','Understand the steps.','Congrats you are a programmer.'];
 function onDataReceived(text) {
-  var lenght = text.length;
-  //console.log(lenght)
-  if (text.trim().slice(0,4)  === 'help'){
-    help();
-  }
-  else if(text === 'list\n') {
-    list();
-  }
-  else if(text.trim().slice(0,3)=== 'add'){
-    add(text,lenght);
-  }
-  else if (text.trim().slice(0,6) === 'remove') {
-    remove(text);
-  }
-  else if (text.trim().slice(0,4) === 'edit') {
-    edit(text);
-  }
-  else if (text === 'quit\n') {
+  var input=text.trim().split(' ')
+  if (text === 'quit\n'|| text === 'exit\n') {
     quit();
   }
-  else if(text === 'exit\n'){
-    quit();
+  else if(input[0] === 'hello'){
+    hello(input);
   }
-  else if(text.trim().slice(0,5) === 'hello'){
-    hello(text,lenght);
+  else if(input[0] === 'list'){
+    list(input);
+  }
+  else if(input[0] === 'help'){
+    help(input);
+  }
+  else if(input[0] === 'remove'){
+    remove(input);
+  }
+  else if(input[0] === 'edit'){
+    edit(input);
+  }
+  else if(input[0] === 'add'){
+    add(input);
+  }
+  else if(input[0] === 'check'){
+    check(input);
+  }
+  else if(input[0] === 'uncheck'){
+    uncheck(input);
   }
   else{
     unknownCommand(text);
@@ -85,100 +138,125 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(h,l){
-  //console.log(l)
-  console.log('hello'+h.trim().substring(5,l)+'!')
-  //console.log(h.lenght)
-}
-
-/**
- * help function
- * Show all the possible commands in the application
- *
- * @returns {void}
- */
-function help(){
-  console.log('You have three commads as follow:\n1-hello\n2-quit\n3-exit\n4-list\n5-add\n6-remove')
-}
-/**
- * list function
- * Show all the tasks that you should be done!!!
- *
- * @returns {void}
- */
-function list(t){
-  for (var i=0 ;i<array.length;i++){
-    console.log((i+1)*1+'-'+array[i])
-  }}
-  /**
- * add function
- * You add tasks by using this function to your task list 
- * 
- *
- * @returns {void}
- */
-function add(a,l){
-  if (l>5){
-    array.push(a.trim().substring(4,l))
+function hello(h){
+  //console.log(h.length)
+  if (h.length==1){
+    console.log('hello!')
   }
-  else{
+  else if(h.length>1){
+    console.log('hello'+' '+ h.slice(1).join(' ')+'!')
+  }
+  
+}
+/**
+ * Gives you the commends that you have
+ *
+ * @returns {void}
+ */
+function help(h){
+  console.log("That is the command:")
+  if (h.length==1){
+    console.log('hello\nexit\nquit\nhelp\nremove\nadd\n')
+  }
+  else if(h.length>1){
+    console.log('hello\nexit\nquit\nhelp\nremove\nadd\n')
+  }
+  //console.log('hello\nexit\nquit\nhelp')
+}
+/**
+ * Gives you the commends that you have
+ *
+ * @returns {void}
+ */
+function list(){
+  for(var i = 0;i<array.length;i++){
+    if(array[i].done=='true'){
+    console.log((i+1)+'-'+" [✓] " +array[i].task);
+ }
+ else{
+     console.log((i+1)+'-'+" "+ "[ ]" +array[i].task);
+ }
+    
+  }
+}
+/**
+ * Gives you the commends that you have
+ *
+ * @returns {void}
+ */
+function add(a){
+  if(a.length==1){
     console.log('error')
   }
-  
+  else{
+    array.push({task:a.slice(1).join(' ').trim(),done:'false'})
+  }
 }
-  
 /**
- * remove function
- * you can remove any task you add in addtion to the basic tasks!!
+ * Gives you the commends that you have
  *
  * @returns {void}
  */
 function remove(r){
-  var number = r.charAt(7);
-  if( r=='remove\n'){
-    array.splice(array.length-1,1)
+  var number = r[1];
+  if(r.length==1){
+    array.pop()
   }
-  else if(number>array.length){
-    console.log('Please enter the right numberof task to remove')
-  }
-  else{
-  for (number;number<array.length+1;number++){
-    array.splice(number-1,1)
-    break;
-  }}
-  // if(r=='remove\n'){
-  //   array.splice(array.length-1,1)
-  // }
-  // else if (r.charAt(7)==1){
-  //   array.splice(0,1)
-  // }
-  // else if (r.charAt(7)==2){
-  //   array.splice(1,1)
-  // }
-  // else{
-  //   unknownCommand(r)
-  // }
+  else if(number<=array.length){
+ 
+   array.splice(number-1,1)
+   
+ }
+ else {
+   console.log('enter the right number of task')
+ }
 }
 /**
- * edit function
- * you can edit any task you want! 
- * 
+ * Gives you the commends that you have
  *
  * @returns {void}
  */
 function edit(e){
-  //console.log('hh')
-  var number = e.charAt(5);
-  console.log(array.length)
-  console.log(number)
-  if (e=='edit\n'){
+  var number=e[1];
+  if(e.length==1){
     console.log('error')
   }
-  else if(e=='edit new text\n'){
-    array.splice(array.length-1,1,'new text')
+  else if (number<=array.length){ 
+      array[number-1].task = e[2]
   }
-  else if(number<=array.length){
-    array.splice(number-1,1,e.trim().substring(7,e.trim().lenght))
+  else{
+    console.log('enter the right number of task')
+  }
+}
+/**
+ * Gives you the commends that you have
+ *
+ * @returns {void}
+ */
+function check(c){
+  var number=c[1];
+  if(c.length==1){
+    console.log('error')
+  }
+  else if (number<=array.length){
+    array[number-1].done='true'
+    //array[number-1].task= array[number-1].task.replace('[]','[✓]')
+  }
+  else{
+    console.log('enter the right number')
+  }
+}
+function uncheck(c){
+  var number=c[1];
+  if(c.length==1){
+    console.log('error')
+  }
+  else if (number<=array.length){
+    array[number-1].done='false'
+    //array[number-1].task= array[number-1].task.replace('[✓]','[]')
+  }
+  else{
+    console.log('enter the right number')
   }
 }
 /**
@@ -188,6 +266,7 @@ function edit(e){
  */
 function quit(){
   console.log('Quitting now, goodbye!')
+  storeData(array, path) ;
   process.exit();
 }
 
