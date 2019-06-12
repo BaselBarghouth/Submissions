@@ -130,7 +130,43 @@ app.get("/test",(req, res) => {
   }
     
   });
+  app.get('/movies/add', (req, res) => {
+    const myTitle = req.query.title;
+    const myYear = req.query.year;
+    const myRate = req.query.rating;
+    //console.log(myTitle)
+    
+    //console.log(movies)
+  if(myTitle==undefined || myYear==undefined || myYear.length!=4 || isNaN(myYear)){
+    res.status(200).send({
+    tatus:403,
+    error:true,
+    message:'you cannot create a movie without providing a title and a year'
+    })
 
+  }
+    // else if(!myRate){
+    //   movies.push({title:myTitle,year:myYear,rating:4});
+    //   res.status(200).send({
+    //     status:200,
+    //     data: movies
+    //   })
+    // }
+    else{
+      movies.push({
+        title:myTitle,
+        year:parseInt(myYear),
+        rating:parseInt((myRate >= 0 && myRate <= 10 && myRate!='' ) ? myRate : 4)
+      })
+      
+      res.status(200).send({
+        status:200,
+        data: movies
+      })
+    }
+    
+  });
+  
 const PORT = 5000;
 
 app.listen(PORT, () => {
