@@ -86,6 +86,35 @@ app.get("/test",(req, res) => {
       rating: 10
     })
   });
+  app.get("/movies/read/by-date",(req, res) => {
+
+    res.status(200).send({
+      status:200,
+      data:movies.sort(function(a,b){
+        return new Date(b.year) - new Date(a.year);
+      })
+    })
+  });
+  app.get("/movies/read/by-rate",(req, res) => {
+
+    res.status(200).send({
+      status:200,
+      data:movies.sort(function(a,b){
+        return (b.rating) - (a.rating);
+      })
+    })
+  });
+  app.get("/movies/read/by-title",(req, res) => {
+
+    res.status(200).send({
+      status:200,
+      data:movies.sort(function(a, b) {
+        var textA = a.title.toUpperCase();
+        var textB = b.title.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      })
+    })
+  });
 const PORT = 5000;
 
 app.listen(PORT, () => {
