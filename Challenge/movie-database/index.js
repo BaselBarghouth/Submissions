@@ -166,7 +166,53 @@ app.get("/test",(req, res) => {
     }
     
   });
+  app.get("/movies/delete/:id",(req, res) => {
+    const id = parseInt(req.params.id);
+    if(id<=movies.length&&id>0){
+      movies.splice(id-1,1)
+      res.status(200).send({
+        status:200, 
+        data:movies
+    })
+    }else{
+      res.status(404).send({
+        status:404, 
+        error:true,
+        message:'the movie '+  id+' does not exist'
+    })
+  }
+    
+  });
+  app.get('/movies/update/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const Title = req.query.title;
+    const Year = req.query.year;
+    const Rating = req.query.rating;
   
+    Rating >= 0 && Rating <= 10 && Rating != '' ? Rating : 4
+  
+    function queryCatcher(query, DBvalue) {
+      if (query != undefined || query == '') {
+        movies[id-1][DBvalue] = query;
+      }
+    }
+  
+    if (id <= movies.length && id > 0) {
+      queryCatcher(Title, 'title');
+      queryCatcher(Year, 'year');
+      queryCatcher(Rating, 'rating');
+      res.status(200).send({
+        status: 200,
+        data: movies[id - 1]
+      });
+  
+    } else {
+      res.status(404).send({
+        status: 404,
+        message: 'the movie ' + id + ' does not exist'
+      });
+    }
+  });
 const PORT = 5000;
 
 app.listen(PORT, () => {
