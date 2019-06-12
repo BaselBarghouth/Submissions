@@ -115,6 +115,22 @@ app.get("/test",(req, res) => {
       })
     })
   });
+  app.get("/movies/read/id/:id",(req, res) => {
+    const id = parseInt(req.params.id);
+    if(id<=movies.length&&id>0){
+      res.status(200).send({
+        status:200, 
+        data:movies[id-1]
+    })
+    }else{
+      res.status(404).send({
+        status:404, 
+        message:'the movie '+  id+' does not exist'
+    })
+  }
+    
+  });
+
 const PORT = 5000;
 
 app.listen(PORT, () => {
